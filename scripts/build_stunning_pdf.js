@@ -1,16 +1,19 @@
 // Build a stunning HTML → PDF resume using Playwright + Chromium.
 // Reads a JSON profile, renders a two-column dark-sidebar design, outputs A4 PDF.
+//
+// Requires Playwright. Run ./install.sh first if you haven't.
 
-const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
-const Module = require('module');
-
-// Fallback: if playwright isn't installed locally, look in the global node_modules.
+let chromium;
 try {
-  const globalRoot = require('child_process').execSync('npm root -g').toString().trim();
-  if (globalRoot && !Module.globalPaths.includes(globalRoot)) Module.globalPaths.unshift(globalRoot);
-} catch (_) { /* ignore */ }
+  ({ chromium } = require('playwright'));
+} catch (e) {
+  // Helpful error if Playwright isn't installed.
+  console.error('\nplaywright module not found.');
+  console.error('Run  ./install.sh  once to install it (also installs Chromium).\n');
+  process.exit(2);
+}
 
 function arg(name, fallback) {
   const i = process.argv.indexOf(name);
