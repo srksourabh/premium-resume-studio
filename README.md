@@ -23,14 +23,36 @@ Plus: nine curated color themes, an **ATS-safe plain-text** export, and a **cove
 - **Academics get a real CV.** Numbered publications, grants, teaching, serif typography.
 - **Every resume is scored**, so "done" means *measurably good*, not just *finished*.
 
-## Quick start
+## Install it once, use it everywhere
+
+This is an **Agent Skill**. Install it globally and it's available in **every** Claude Code
+project (full matrix — project, plugin, CLI, Gemini — in [`docs/INSTALL.md`](docs/INSTALL.md)):
+
+```bash
+git clone https://github.com/srksourabh/premium-resume-studio.git
+cd premium-resume-studio
+./install-skill.sh          # → ~/.claude/skills/premium-resume-studio  (+ Chromium)
+```
+
+Restart Claude Code (or `/reload`), check `/skills`, then just ask:
+
+> "build me a standout resume from my profile"
+
+**Or install as a Claude Code plugin:**
+
+```
+/plugin marketplace add srksourabh/premium-resume-studio
+/plugin install premium-resume-studio@premium-resume-studio
+```
+
+**Or use the CLI directly (no agent):**
 
 ```bash
 ./install.sh                                     # Playwright + Chromium (one-time)
-
-# Build + score in one shot (auto-classifies, renders, convenes the council):
 node scripts/build_resume.js --profile profile/sourabh.json --out output.pdf --html --ats --cover
 ```
+
+## Quick start
 
 Try the other archetypes:
 

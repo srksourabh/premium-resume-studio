@@ -1,0 +1,18 @@
+{
+  "name": "premium-resume-studio",
+  "owner": { "name": "Sourabh Bhaumik", "email": "srksourabh@gmail.com" },
+  "metadata": {
+    "description": "Single-plugin marketplace for Premium Resume Studio.",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "premium-resume-studio",
+      "source": ".",
+      "description": "Autonomous premium-resume builder: auto-classifies the archetype, researches the person, renders a CEO-grade PDF, and iterates with a model council until the score clears 85.",
+      "version": "2.0.0",
+      "license": "MIT",
+      "keywords": ["resume", "cv", "ats", "resume-builder"]
+    }
+  ]
+}

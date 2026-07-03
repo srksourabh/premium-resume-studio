@@ -39,6 +39,16 @@ The Studio is opinionated about quality. It does four things on its own:
 > This is the loop the skill is built around. Run it whenever asked to build/upgrade a resume.
 > **Do not stop until the Model Council score is ≥ 85.**
 
+> **Where the scripts live (global / plugin installs).** When this skill is installed globally
+> (`~/.claude/skills/…`) or as a plugin, your working directory is the *user's project*, not the
+> skill folder. Resolve the skill's own path first and call scripts through it:
+> ```bash
+> SKILL="${CLAUDE_SKILL_DIR:-${CLAUDE_PLUGIN_ROOT:-$PWD}}"   # Claude Code sets these
+> node "$SKILL/scripts/build_resume.js" --profile ./my-profile.json --out ./resume.pdf --html --ats
+> ```
+> Keep the **profile JSON in the user's project** (e.g. `./my-profile.json`); the scripts and
+> sample profiles live under `$SKILL`. The examples below use `$SKILL` for that reason.
+
 ### 1 — Load / build the profile
 Read the JSON profile (`profile/<name>.json`; schema in `profile/README.md`). If the user
 only pasted a bio, draft a profile JSON from it first.
@@ -53,7 +63,7 @@ Look the person up and **enrich only with what you can verify**:
 
 ### 3 — Classify (automatic)
 ```bash
-node scripts/build_resume.js --profile profile/<name>.json --score-only
+node "$SKILL/scripts/build_resume.js" --profile ./<name>.json --score-only
 ```
 The banner prints the chosen **archetype**, **seniority**, **fresher?** flag, **confidence**,
 and the **theme**. Override only if the user insists (`--archetype`, `--theme`).
@@ -74,15 +84,15 @@ hackathons, and a crisp objective.
 
 ### 4 — Render
 ```bash
-node scripts/build_resume.js --profile profile/<name>.json --out out.pdf --html --ats --cover
+node "$SKILL/scripts/build_resume.js" --profile ./<name>.json --out ./out.pdf --html --ats --cover
 ```
 Produces `out.pdf` (+ `out.html`, `out.ats.txt` plain-text for ATS, `out.cover.txt` draft).
 
 ### 5 — Convene the Model Council
 The same command prints the council report. Also available standalone:
 ```bash
-node scripts/lib/council.js --profile profile/<name>.json          # human report
-node scripts/lib/council.js --profile profile/<name>.json --json   # machine-readable
+node "$SKILL/scripts/lib/council.js" --profile ./<name>.json          # human report
+node "$SKILL/scripts/lib/council.js" --profile ./<name>.json --json   # machine-readable
 ```
 It returns an **absolute score**, ten rubric dimensions, five reviewer **personas**
 (Executive Recruiter, ATS Bot, Domain Expert, Design Critic, Hiring CEO), and **ranked fixes**.
@@ -166,10 +176,27 @@ Nine curated palettes — deep, saturated accents on clean backgrounds (colorful
 `plum-coral`, `teal-sunrise`, `academic-navy`, `slate-mono` (ATS/print). `--list-themes` to see all.
 Design tokens live in `scripts/lib/themes.js`; see `docs/design-system.md`.
 
-## Quick start
+## Install
+
+Make the skill available everywhere, then use it in any project. Full matrix (global,
+per-project, plugin, CLI, Gemini) in [`docs/INSTALL.md`](docs/INSTALL.md).
 
 ```bash
-./install.sh                                             # Playwright + Chromium (one-time)
+git clone https://github.com/srksourabh/premium-resume-studio.git
+cd premium-resume-studio
+./install-skill.sh        # → ~/.claude/skills/premium-resume-studio (global) + Chromium
+```
+
+Or as a Claude Code plugin:
+
+```
+/plugin marketplace add srksourabh/premium-resume-studio
+/plugin install premium-resume-studio@premium-resume-studio
+```
+
+Then, from inside the skill dir during development:
+
+```bash
 node scripts/build_resume.js --profile profile/sourabh.json --out output.pdf --html --ats
 ```
 
@@ -180,6 +207,8 @@ premium-resume-studio/
 ├── SKILL.md                     # this file — the agent workflow
 ├── README.md                    # human overview
 ├── install.sh                   # one-shot Playwright + Chromium setup
+├── install-skill.sh             # install as a global/project/Gemini skill
+├── .claude-plugin/              # plugin.json + marketplace.json (install as a plugin)
 ├── package.json
 ├── profile/
 │   ├── README.md                # schema docs
@@ -200,6 +229,7 @@ premium-resume-studio/
 │   ├── fresher-sample.json      # try: --profile examples/fresher-sample.json
 │   └── academic-sample.json     # try: --profile examples/academic-sample.json
 └── docs/
+    ├── INSTALL.md               # global / project / plugin / CLI / Gemini install matrix
     ├── model-council.md         # how the council scores + the LLM-council overlay
     ├── design-system.md         # themes, tokens, re-skinning
     └── gemini-integration.md    # calling the skill from Gemini

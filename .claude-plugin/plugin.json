@@ -1,0 +1,11 @@
+{
+  "name": "premium-resume-studio",
+  "displayName": "Premium Resume Studio",
+  "version": "2.0.0",
+  "description": "Autonomous premium-resume builder for anyone who wants a professional-yet-creative resume that stands out. Auto-classifies the archetype (executive / academic / fresher / technical / general), researches the person, renders a CEO-grade PDF via HTML+CSS+Chromium, and iterates with a model council until the absolute score clears 85. Ships 9 themes, an ATS-safe text export, and a cover-letter draft.",
+  "author": { "name": "Sourabh Bhaumik", "email": "srksourabh@gmail.com" },
+  "homepage": "https://github.com/srksourabh/premium-resume-studio",
+  "repository": "https://github.com/srksourabh/premium-resume-studio",
+  "license": "MIT",
+  "keywords": ["resume", "cv", "ats", "pdf", "resume-builder", "resume-scoring", "cover-letter", "design"]
+}
