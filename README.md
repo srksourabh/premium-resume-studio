@@ -97,15 +97,18 @@ node scripts/build_resume.js --list-themes
 
 Design tokens and re-skinning: [`docs/design-system.md`](docs/design-system.md).
 
-## Calling it from an AI agent
+## Use it from anywhere
 
-This is an agent-skill (`SKILL.md` + scripts). Any agent that reads `SKILL.md` will run the
-full research → classify → render → score → iterate loop.
+This is an agent-skill (`SKILL.md` + scripts). Any agent that reads `SKILL.md` runs the full
+research → classify → render → score → iterate loop. **Full integration matrix (Claude, Claude
+Code, Gemini, Apps Script, Google Sheets, Codex/OpenAI, Cursor/VS Code, CI, Docker, automation)
+→ [`docs/integrations.md`](docs/integrations.md).**
 
 - **Claude Code / Cursor** — open the folder, ask: *"build me a standout resume from my profile."*
-- **Gemini CLI** — `gemini extensions install https://github.com/srksourabh/premium-resume-studio`
-  then `gemini "Build my resume from profile/sourabh.json"`. See
-  [`docs/gemini-integration.md`](docs/gemini-integration.md).
+- **Gemini** — CLI, AI Studio, or API (function calling) — [`docs/gemini-integration.md`](docs/gemini-integration.md).
+- **Google Apps Script + Sheets** — batch-render from a spreadsheet — [`apps-script/`](apps-script/).
+- **Codex / any AGENTS.md agent** — [`AGENTS.md`](AGENTS.md).
+- **HTTP / automation** — the zero-dep render service [`server/render-server.js`](server/render-server.js).
 
 ## Profile schema
 

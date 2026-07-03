@@ -188,10 +188,13 @@ Nine curated palettes — deep, saturated accents on clean backgrounds (colorful
 `plum-coral`, `teal-sunrise`, `academic-navy`, `slate-mono` (ATS/print). `--list-themes` to see all.
 Design tokens live in `scripts/lib/themes.js`; see `docs/design-system.md`.
 
-## Install
+## Install & integrate
 
-Make the skill available everywhere, then use it in any project. Full matrix (global,
-per-project, plugin, CLI, Gemini) in [`docs/INSTALL.md`](docs/INSTALL.md).
+Make the skill available everywhere, then use it in any project. Install matrix (global,
+per-project, plugin, CLI, Gemini) in [`docs/INSTALL.md`](docs/INSTALL.md); the full
+integration matrix — Claude, Claude Code, Gemini, **Google Apps Script**, **Google Sheets**,
+**Codex/OpenAI**, Cursor/VS Code, CI, Docker, HTTP automation — in
+[`docs/integrations.md`](docs/integrations.md).
 
 ```bash
 git clone https://github.com/srksourabh/premium-resume-studio.git
@@ -217,10 +220,13 @@ node scripts/build_resume.js --profile profile/sourabh.json --out output.pdf --h
 ```
 premium-resume-studio/
 ├── SKILL.md                     # this file — the agent workflow
+├── AGENTS.md                    # quick contract for Codex / AGENTS.md agents
 ├── README.md                    # human overview
 ├── install.sh                   # one-shot Playwright + Chromium setup
 ├── install-skill.sh             # install as a global/project/Gemini skill
 ├── .claude-plugin/              # plugin.json + marketplace.json (install as a plugin)
+├── apps-script/                 # Google Apps Script + Sheets + Gemini (Code.gs)
+├── server/                      # render-server.js — zero-dep HTTP render service
 ├── package.json
 ├── profile/
 │   ├── README.md                # schema docs
@@ -244,6 +250,7 @@ premium-resume-studio/
 │   └── academic-sample.json     # try: --profile examples/academic-sample.json
 └── docs/
     ├── INSTALL.md               # global / project / plugin / CLI / Gemini install matrix
+    ├── integrations.md          # every surface: Claude, Gemini, Apps Script, Sheets, Codex, CI…
     ├── model-council.md         # how the council scores + the LLM-council overlay
     ├── design-system.md         # themes, tokens, re-skinning
     └── gemini-integration.md    # calling the skill from Gemini
