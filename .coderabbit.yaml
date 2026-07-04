@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+#
+# CodeRabbit is intentionally DISABLED for this repository.
+# Automated code review here is handled by Qodo Merge instead.
+#
+# This file only turns CodeRabbit off for THIS repo. To stop CodeRabbit across
+# all of your repositories, uninstall the CodeRabbit GitHub App from your
+# account: https://github.com/settings/installations  ->  CodeRabbit -> Configure
+# -> Uninstall. Leave the Qodo Merge app installed.
+#
+# To re-enable CodeRabbit later, delete this file or set the values below to true.
+reviews:
+  # No automatic review of new or updated pull requests.
+  auto_review:
+    enabled: false
+    auto_incremental_review: false
+  # No "review skipped / status" comments.
+  review_status: false
+  # No auto-generated PR summary, walkthrough, or poem.
+  high_level_summary: false
+  poem: false
+  # Never auto-request changes.
+  request_changes_workflow: false
+chat:
+  # Don't auto-reply to comments.
+  auto_reply: false
