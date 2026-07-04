@@ -162,7 +162,7 @@ function render(p, ctx = {}) {
   </main>
 </div>`;
 
-  return docShell({ title: `${id.name} — Resume`, theme: ctx.theme, css, body });
+  return docShell({ title: `${id.name} — Resume`, css, body, design: ctx.design || { theme: ctx.theme } });
 }
 
 module.exports = { render, id: 'executive', label: 'Executive / Corporate' };

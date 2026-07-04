@@ -61,21 +61,33 @@ Look the person up and **enrich only with what you can verify**:
 - **Never invent** dates, metrics, employers, or institutions. Tag anything unverified in a
   `_provenance` block and surface it to the user for confirmation — do not silently assert it.
 
-### 3 — Classify (automatic)
+### 3 — Classify + pick a design (automatic)
 ```bash
 node "$SKILL/scripts/build_resume.js" --profile ./<name>.json --score-only
 ```
-The banner prints the chosen **archetype**, **seniority**, **fresher?** flag, **confidence**,
-and the **theme**. Override only if the user insists (`--archetype`, `--theme`).
+The banner prints the chosen **archetype**, **seniority**, **fresher?** flag, and the
+**design model** picked from a **138-design catalog**. Selection is context-aware and
+**reproducible**: it filters to designs that fit the archetype, then scores by seniority
+(executives → sober/formal; freshers → bold) and industry (tech → graphite/steel, finance →
+navy/emerald, creative → coral/plum, academia → serif navy…). Same profile → same design;
+different people/roles → different designs. Explore with `--variant N` / `--random`, force one
+with `--design <id|n>`, or force just the palette with `--theme`. See
+[`docs/design-catalog.md`](docs/design-catalog.md); list all with `--list-designs`.
 
-Archetypes → default look:
-| Archetype | Layout | Default theme |
-|-----------|--------|---------------|
-| `executive` | two-column, metric strip, venture timeline, product cards | `midnight-gold` |
-| `academic` | single-column CV, numbered publications, serif headings | `academic-navy` |
-| `fresher` | hero band + strengths spotlight + skill bars + projects grid | `teal-sunrise` |
-| `technical` | skills matrix + tech-tagged projects | `graphite-azure` |
-| `general` | clean modern two-column | `sapphire-teal` |
+Layout families and who they suit:
+| Family | Look | Fits |
+|--------|------|------|
+| `executive` | left dark sidebar, metric strip, venture timeline, product cards | executive, general |
+| `sidebar-right` | mirrored two-column | executive, general, technical |
+| `single` | single-column, section rules (very ATS-friendly) | executive, general, technical, academic |
+| `header-band` | full-width color hero + body | executive, general, creative, technical |
+| `academic` | single-column CV, numbered publications, serif | academic |
+| `fresher` | hero band + strengths spotlight + skill bars + projects grid | fresher, creative |
+
+**Freshers get special treatment** — the layout is engineered to be *noticed*: a bold hero,
+a color spotlight strip of standout numbers (CGPA, projects, internships, awards), leveled
+skill bars, and a projects grid (a fresher's #1 differentiator). Lean into projects, awards,
+hackathons, and a crisp objective.
 
 **Freshers get special treatment** — the layout is engineered to be *noticed*: a bold hero,
 a color spotlight strip of standout numbers (CGPA, projects, internships, awards), leveled
@@ -161,7 +173,10 @@ Full field reference: `profile/README.md`. JSON Schema: `profile/schema.json`.
 node scripts/build_resume.js [options]
   --profile <path>     Profile JSON              (default: profile/sourabh.json)
   --out <path>         Output PDF                (default: output.pdf)
-  --theme <key>        Override theme            (see --list-themes)
+  --design <id|n>      Force a specific design   (see --list-designs; 138 models)
+  --variant <n>        Nth-best-fitting design    (explore alternatives)
+  --random             Random on-brand design
+  --theme <key>        Force the palette only     (see --list-themes)
   --archetype <key>    Override archetype        (executive|academic|fresher|technical|general)
   --threshold <n>      Council pass mark         (default: 85)
   --html               Also write the HTML next to the PDF
@@ -175,7 +190,7 @@ node scripts/build_resume.js [options]
   --max-pages <n>      Cap page count (auto-fit compresses to fit)
   --score-only         Classify + score, skip rendering (fast)
   --json               Emit classification + council as JSON
-  --list-themes | --list-templates
+  --list-themes | --list-templates | --list-designs
 ```
 
 Back-compat: `node scripts/build_stunning_pdf.js --profile … --out … [--html]` still works
@@ -242,8 +257,9 @@ premium-resume-studio/
 │       ├── helpers.js           # metric mining, verb/quant analysis, escaping
 │       ├── fit.js               # auto-fit: densify/expand so pages fill cleanly
 │       ├── browser.js           # robust Chromium launcher (finds installed build)
+│       ├── design/              # catalog.js · select.js · typography.js · ornaments.js (138 designs)
 │       ├── export/              # docx.js · odt.js · docmodel.js (editable formats)
-│       └── templates/           # executive · academic · fresher · general · _components
+│       └── templates/           # executive · academic · fresher · general · universal · _components
 ├── examples/
 │   ├── sourabh-resume.pdf/.html/.ats.txt/.cover.txt   # executive sample (score 90.6)
 │   ├── fresher-sample.json      # try: --profile examples/fresher-sample.json
@@ -251,6 +267,7 @@ premium-resume-studio/
 └── docs/
     ├── INSTALL.md               # global / project / plugin / CLI / Gemini install matrix
     ├── integrations.md          # every surface: Claude, Gemini, Apps Script, Sheets, Codex, CI…
+    ├── design-catalog.md        # the 138-design catalog + context selection
     ├── model-council.md         # how the council scores + the LLM-council overlay
     ├── design-system.md         # themes, tokens, re-skinning
     └── gemini-integration.md    # calling the skill from Gemini

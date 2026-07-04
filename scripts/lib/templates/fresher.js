@@ -156,7 +156,7 @@ function render(p, ctx = {}) {
   </div>
 </div>`;
 
-  return docShell({ title: `${id.name} — Resume`, theme: ctx.theme, css, body });
+  return docShell({ title: `${id.name} — Resume`, css, body, design: ctx.design || { theme: ctx.theme } });
 }
 
 module.exports = { render, id: 'fresher', label: 'Fresher / Early-career' };

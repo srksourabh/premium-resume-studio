@@ -5,6 +5,8 @@
 
 const { esc, cleanUrl } = require('../helpers');
 const { themeCSS } = require('../themes');
+const { typeCSS } = require('../design/typography');
+const { ornamentClasses, ornamentCSS } = require('../design/ornaments');
 
 // --- Inline SVG icons (currentColor, 1em box) — print-safe, no network. ---
 const ICONS = {
@@ -41,7 +43,7 @@ function baseCSS() {
   *,*::before,*::after{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
-    font-family:'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif;
+    font-family:var(--font-body,'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif);
     color:var(--ink); background:var(--bg);
     -webkit-font-smoothing:antialiased; font-size:9.7pt; line-height:1.38;
   }
@@ -98,7 +100,9 @@ function baseCSS() {
   .aside .pill{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); color:var(--side-ink); }
   /* Main column primitives */
   .sec-title{
-    font-size:11pt;color:var(--ink);text-transform:uppercase;letter-spacing:1.3px;font-weight:800;
+    font-size:11pt;color:var(--ink);
+    font-family:var(--font-head,'Inter',sans-serif);
+    text-transform:var(--head-case,uppercase);letter-spacing:var(--head-spacing,1.3px);font-weight:var(--head-weight,800);
     margin:0 0 3mm 0;padding-bottom:1.4mm;border-bottom:2px solid var(--hairline);
     display:flex;align-items:center;gap:2mm;
   }
@@ -113,21 +117,33 @@ function baseCSS() {
   .metric{ background:var(--surface); border-radius:6px; padding:2.8mm 3mm; border-bottom:2.5px solid var(--accent-deep); }
   .metric .n{ font-size:13pt; font-weight:800; color:var(--ink); line-height:1.05; letter-spacing:-.4px; word-break:keep-all; }
   .metric .l{ font-size:7pt; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.4px; margin-top:1.4mm; line-height:1.25; }
+  ${ornamentCSS()}
   `;
 }
 
-/** Assemble a full HTML document. */
-function docShell({ title, theme, css, body, extraHead = '' }) {
+/**
+ * Assemble a full HTML document.
+ * Accepts either `design` ({ theme, type, ornaments, rootClass }) — the new
+ * design-catalog path — or a bare `theme` for back-compat.
+ */
+function docShell({ title, theme, css, body, extraHead = '', design }) {
+  const paletteKey = design ? design.theme : theme;
+  const typeKey = design ? design.type : 'sans';
+  const rootCls = [
+    design ? ornamentClasses(design.ornaments) : '',
+    design && design.rootClass ? design.rootClass : '',
+    typeKey ? `type-${typeKey}` : '',
+  ].filter(Boolean).join(' ');
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="hz:canvas-width" content="794">
 <title>${esc(title)}</title>
-<style>${themeCSS(theme)}${baseCSS()}${css}</style>
+<style>${themeCSS(paletteKey)}${typeCSS(typeKey)}${baseCSS()}${css}</style>
 ${extraHead}
 </head>
-<body>${body}</body>
+<body class="${rootCls}">${body}</body>
 </html>`;
 }
 

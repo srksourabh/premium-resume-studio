@@ -7,6 +7,7 @@ const executive = require('./executive');
 const academic = require('./academic');
 const fresher = require('./fresher');
 const general = require('./general');
+const universal = require('./universal');
 
 const REGISTRY = {
   executive,
@@ -17,8 +18,15 @@ const REGISTRY = {
   general,
 };
 
+// Renderers addressable by name (the design catalog routes by renderer, not archetype).
+const RENDERERS = { executive, academic, fresher, general, universal };
+
 function getTemplate(archetype) {
   return REGISTRY[archetype] || general;
+}
+
+function getRenderer(name) {
+  return RENDERERS[name] || general;
 }
 
 function listTemplates() {
@@ -87,4 +95,4 @@ function atsText(p) {
   return L.join('\n') + '\n';
 }
 
-module.exports = { getTemplate, listTemplates, atsText, REGISTRY };
+module.exports = { getTemplate, getRenderer, listTemplates, atsText, REGISTRY };

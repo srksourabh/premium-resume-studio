@@ -20,7 +20,8 @@ const path = require('path');
 
 const { classify } = require('./lib/classify');
 const { getTheme, THEMES, themeForArchetype } = require('./lib/themes');
-const { getTemplate, listTemplates, atsText } = require('./lib/templates');
+const { getTemplate, getRenderer, listTemplates, atsText } = require('./lib/templates');
+const { selectDesign, listDesigns } = require('./lib/design/select');
 const council = require('./lib/council');
 const { deriveMetrics } = require('./lib/helpers');
 
@@ -41,6 +42,12 @@ if (flag('--list-themes')) {
 if (flag('--list-templates')) {
   console.log('\nTemplates:');
   for (const t of listTemplates()) console.log(`  ${t.id.padEnd(12)} ${t.label}`);
+  process.exit(0);
+}
+if (flag('--list-designs')) {
+  const ds = listDesigns();
+  console.log(`\n${ds.length} design models (id · name · family · palette · type):`);
+  for (const d of ds) console.log(`  ${String(d.n).padStart(3)}  ${d.id.padEnd(34)} ${d.name.padEnd(22)} ${d.family.padEnd(14)} ${d.palette.padEnd(15)} ${d.type}`);
   process.exit(0);
 }
 
@@ -67,20 +74,32 @@ if (!p.identity || !p.identity.name) die('Profile missing required field: identi
 const forcedArchetype = arg('--archetype', null);
 const cls = classify(p, { theme: arg('--theme', null) });
 if (forcedArchetype) { cls.archetype = forcedArchetype; cls.recommendedTheme = arg('--theme', themeForArchetype(forcedArchetype)); }
-const themeKey = arg('--theme', cls.recommendedTheme);
+// ---- pick a design model from the 100+ catalog (best-fit, or overridden) ----
+const selection = selectDesign(cls, p, {
+  design: arg('--design', null),
+  variant: arg('--variant', null) ? parseInt(arg('--variant', null), 10) : null,
+  random: flag('--random'),
+});
+const chosen = selection.design;
+// --theme forces the palette on top of the chosen design.
+const themeKey = arg('--theme', chosen.theme);
 const theme = getTheme(themeKey);
-const themeMatchesArchetype = themeKey === themeForArchetype(cls.archetype);
+const design = { theme: themeKey, type: chosen.type, ornaments: chosen.ornaments, family: chosen.family };
+// A catalog design is archetype-appropriate by construction, so it "fits".
+const themeMatchesArchetype = (chosen.tags && chosen.tags.archetypes || []).includes(cls.archetype)
+  || themeKey === themeForArchetype(cls.archetype);
 
 function classificationBanner() {
   const L = [];
   L.push('');
-  L.push('  ┌─── AUTO-CLASSIFICATION ───────────────────────────────────┐');
+  L.push('  ┌─── AUTO-CLASSIFICATION + DESIGN ──────────────────────────┐');
   L.push(`  │  Archetype : ${cls.archetype.padEnd(12)}  Seniority: ${String(cls.seniority).padEnd(10)}  │`);
   L.push(`  │  Fresher?  : ${String(cls.isFresher).padEnd(12)}  Confidence: ${String(cls.confidence).padEnd(8)}  │`);
-  L.push(`  │  Theme     : ${themeKey.padEnd(43)}│`);
+  L.push(`  │  Design    : #${String(chosen.n).padEnd(3)} ${chosen.name.padEnd(38)}│`);
   L.push('  └───────────────────────────────────────────────────────────┘');
-  if (cls.signals.length) L.push('  Signals: ' + cls.signals.slice(0, 4).join('; '));
-  L.push('  Alternatives considered: ' + cls.alternatives.map((a) => `${a.archetype}(${a.score})`).join(', '));
+  L.push(`  Layout: ${chosen.family} · Palette: ${themeKey} · Type: ${chosen.type}`);
+  L.push(`  Chosen: ${selection.reason}  (${selection.fitting} designs fit · ${selection.total} total)`);
+  L.push('  More: --variant N · --design <id> · --random · --list-designs');
   return L.join('\n');
 }
 
@@ -139,8 +158,8 @@ async function renderPdf(html, outAbs, { fit = true, maxPages = null } = {}) {
 
 (async () => {
   const outAbs = path.resolve(OUT_PDF);
-  const tpl = getTemplate(cls.archetype);
-  const html = tpl.render(p, { theme, classification: cls });
+  const tpl = getRenderer(chosen.renderer);
+  const html = tpl.render(p, { theme, classification: cls, design });
 
   console.log(classificationBanner());
 
@@ -150,7 +169,7 @@ async function renderPdf(html, outAbs, { fit = true, maxPages = null } = {}) {
     const res = await renderPdf(html, outAbs, { fit: !NO_FIT, maxPages: MAX_PAGES });
     pages = res.pages;
     const kb = Math.round(fs.statSync(outAbs).size / 1024);
-    console.log(`\n  ✅ PDF   : ${outAbs}  (${pages} page${pages > 1 ? 's' : ''}, ${kb} KB, template: ${tpl.id}, ${res.scale})`);
+    console.log(`\n  ✅ PDF   : ${outAbs}  (${pages} page${pages > 1 ? 's' : ''}, ${kb} KB, design: ${chosen.name}, ${res.scale})`);
     if (ALSO_HTML) console.log(`  ✅ HTML  : ${outAbs.replace(/\.pdf$/i, '.html')}`);
   }
 

@@ -11,8 +11,10 @@ Feed it one JSON profile. It figures out the rest:
 3. 🎨 **Renders a premium PDF** — colorful but sober, real CSS design, printed by Chromium.
 4. 🏛️ **Scores it with a Model Council** and **iterates until it clears 85 / 100.**
 
-Plus: **PDF + DOCX + ODT** output, nine curated color themes, an **ATS-safe plain-text** export,
-a **cover-letter draft**, and an **auto-fit** layout that fills the pages it uses (no blank tail).
+Plus: a **138-design catalog** it picks from by context (layout × palette × typography ×
+ornaments — never the same look by default), **PDF + DOCX + ODT** output, an **ATS-safe
+plain-text** export, a **cover-letter draft**, and an **auto-fit** layout that fills the pages
+it uses (no blank tail).
 
 ## Why it stands out
 
@@ -85,17 +87,22 @@ Ten weighted rubric dimensions, five reviewer personas, and a **ranked list of t
 edits** that move the score. Apply them to the JSON, re-render, repeat. See
 [`docs/model-council.md`](docs/model-council.md).
 
-## Themes
+## Designs & themes
 
-`midnight-gold` · `royal-emerald` · `sapphire-teal` · `burgundy-rose` · `graphite-azure` ·
-`plum-coral` · `teal-sunrise` · `academic-navy` · `slate-mono`
+138 context-picked designs (best-fit, reproducible) across 6 layout families, 18 palettes,
+5 type pairings, and mix-and-match ornaments:
 
 ```bash
-node scripts/build_resume.js --profile p.json --theme royal-emerald --out out.pdf
-node scripts/build_resume.js --list-themes
+node scripts/build_resume.js --profile p.json --out out.pdf                # best fit
+node scripts/build_resume.js --profile p.json --out out.pdf --variant 3    # explore
+node scripts/build_resume.js --profile p.json --out out.pdf --random       # random on-brand
+node scripts/build_resume.js --profile p.json --out out.pdf --design 54    # force one
+node scripts/build_resume.js --profile p.json --out out.pdf --theme royal-emerald  # palette only
+node scripts/build_resume.js --list-designs      # all 138
 ```
 
-Design tokens and re-skinning: [`docs/design-system.md`](docs/design-system.md).
+How selection works + the axes: [`docs/design-catalog.md`](docs/design-catalog.md).
+Tokens and re-skinning: [`docs/design-system.md`](docs/design-system.md).
 
 ## Use it from anywhere
 

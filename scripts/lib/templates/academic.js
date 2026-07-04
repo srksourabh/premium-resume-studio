@@ -95,7 +95,7 @@ function render(p, ctx = {}) {
   </main>
 </div>`;
 
-  return docShell({ title: `${id.name} — Curriculum Vitae`, theme: ctx.theme, css, body });
+  return docShell({ title: `${id.name} — Curriculum Vitae`, css, body, design: ctx.design || { theme: ctx.theme } });
 }
 
 module.exports = { render, id: 'academic', label: 'Academic CV' };

@@ -5,16 +5,19 @@
 <meta name="hz:canvas-width" content="794">
 <title>Sourabh Bhaumik — Resume</title>
 <style>:root{
-  --ink:#16202f; --ink-soft:#59647a; --bg:#ffffff; --surface:#f5f7fb; --hairline:#e2e8f2;
-  --side-from:#0b1e39; --side-via:#12365f; --side-to:#1f4f8a;
-  --side-ink:#eef3fb; --side-muted:#b9cae2;
-  --accent:#f0b34e; --accent-rgb:240,179,78; --accent-deep:#cf8a34;
-  --accent-text:#0b1e39; --hero-ink:#fbe2b4;
+  --ink:#151922; --ink-soft:#5b6474; --bg:#ffffff; --surface:#f4f6fa; --hairline:#e0e5ee;
+  --side-from:#12151c; --side-via:#1b2430; --side-to:#28384a;
+  --side-ink:#eef2f8; --side-muted:#aeb9c9;
+  --accent:#38bdf8; --accent-rgb:56,189,248; --accent-deep:#0ea5e9;
+  --accent-text:#082032; --hero-ink:#bae6fd;
+}:root{
+  --font-head:'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif; --font-body:'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif; --font-mono:'SFMono-Regular','Liberation Mono','DejaVu Sans Mono',Consolas,monospace;
+  --head-case:uppercase; --head-spacing:1.3px; --head-weight:800;
 }
   *,*::before,*::after{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
-    font-family:'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif;
+    font-family:var(--font-body,'Inter','Segoe UI','Helvetica Neue',Arial,'Liberation Sans',system-ui,sans-serif);
     color:var(--ink); background:var(--bg);
     -webkit-font-smoothing:antialiased; font-size:9.7pt; line-height:1.38;
   }
@@ -71,7 +74,9 @@
   .aside .pill{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); color:var(--side-ink); }
   /* Main column primitives */
   .sec-title{
-    font-size:11pt;color:var(--ink);text-transform:uppercase;letter-spacing:1.3px;font-weight:800;
+    font-size:11pt;color:var(--ink);
+    font-family:var(--font-head,'Inter',sans-serif);
+    text-transform:var(--head-case,uppercase);letter-spacing:var(--head-spacing,1.3px);font-weight:var(--head-weight,800);
     margin:0 0 3mm 0;padding-bottom:1.4mm;border-bottom:2px solid var(--hairline);
     display:flex;align-items:center;gap:2mm;
   }
@@ -86,6 +91,43 @@
   .metric{ background:var(--surface); border-radius:6px; padding:2.8mm 3mm; border-bottom:2.5px solid var(--accent-deep); }
   .metric .n{ font-size:13pt; font-weight:800; color:var(--ink); line-height:1.05; letter-spacing:-.4px; word-break:keep-all; }
   .metric .l{ font-size:7pt; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.4px; margin-top:1.4mm; line-height:1.25; }
+  
+  /* ---- section-title treatments ---- */
+  .t-bar .sec-title{ border-bottom:0; padding:0 0 0 3.5mm; border-left:3px solid var(--accent); }
+  .t-pilltab .sec-title{ border-bottom:0; display:inline-flex; background:rgba(var(--accent-rgb),0.12); color:var(--accent-deep); padding:1.4mm 3.5mm; border-radius:20px; }
+  .t-pilltab .sec-title .ic{ color:var(--accent-deep); }
+  .t-underline .sec-title{ border-bottom:0; }
+  .t-underline .sec-title::after{ content:''; display:block; }
+  .t-underline .sec-title{ position:relative; padding-bottom:2mm; }
+  .t-underline .sec-title{ background:linear-gradient(var(--accent),var(--accent)) left bottom / 14mm 2.4px no-repeat; }
+  .t-block .sec-title{ border-bottom:0; background:var(--accent-deep); color:var(--accent-text); padding:1.6mm 3.5mm; border-radius:4px; }
+  .t-block .sec-title .ic, .t-block .sec-title .tick{ color:var(--accent-text); }
+
+  /* ---- markers (timeline nodes + bullet dots) ---- */
+  .m-ring .venture::before, .m-ring .tl::before, .m-ring .xp::before{ background:var(--bg); border:2px solid var(--accent); }
+  .m-ring .ach li::before, .m-ring .tl-dot{ background:var(--bg); border:1.6px solid var(--accent); }
+  .m-square .venture::before, .m-square .tl::before, .m-square .xp::before{ border-radius:1px; }
+  .m-square .ach li::before{ border-radius:0; }
+  .m-diamond .venture::before, .m-diamond .tl::before, .m-diamond .xp::before{ border-radius:1px; transform:rotate(45deg); }
+  .m-diamond .ach li::before{ border-radius:0; transform:rotate(45deg); }
+
+  /* ---- skill-pill shapes ---- */
+  .p-soft .pill{ border-color:transparent; background:rgba(var(--accent-rgb),0.13); }
+  .p-outline .pill{ background:transparent; border:1px solid rgba(var(--accent-rgb),0.5); color:var(--accent-deep); }
+  .p-square .pill{ border-radius:3px; }
+  .aside.p-soft .pill, .p-soft .aside .pill{ background:rgba(255,255,255,0.1); }
+
+  /* ---- metric-card styles ---- */
+  .mtr-boxed .metric{ border:1px solid var(--hairline); border-bottom:2.5px solid var(--accent-deep); background:var(--bg); }
+  .mtr-underline .metric{ background:transparent; border:0; border-bottom:2.5px solid var(--accent); border-radius:0; padding-left:0; }
+  .mtr-plain .metric{ background:transparent; border:0; padding:1mm 0; }
+  .mtr-plain .metric .n{ font-size:15pt; }
+
+  /* ---- monogram shapes ---- */
+  .mono-circle .monogram{ border-radius:50%; }
+  .mono-square .monogram{ border-radius:6px; }
+  .mono-hex .monogram{ border-radius:0; clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0 50%); }
+  
   
   .sheet{ display:grid; grid-template-columns:68mm 1fr; }
   .aside{ padding:11mm 8mm 11mm 10mm; }
@@ -131,7 +173,7 @@
 </style>
 
 </head>
-<body>
+<body class="t-bar m-ring p-soft mtr-boxed mono-square type-sans">
 <div class="sheet">
   <aside class="aside">
     <div class="monogram">SB</div>
