@@ -1,0 +1,79 @@
+{
+  "version": "2.0",
+  "identity": {
+    "name": "Meera Iyer",
+    "headline": "Senior Software Engineer | Backend & Distributed Systems",
+    "location": "Bengaluru, Karnataka, India",
+    "email": "meera.iyer@example.com",
+    "phone": "+91 80000 33219",
+    "linkedin": "linkedin.com/in/meera-iyer-eng",
+    "github": "github.com/meera-iyer"
+  },
+  "summary": {
+    "short": "Backend engineer who keeps payment systems fast and cheap under load — eight years on distributed systems in Go and Rust.",
+    "long": "Senior software engineer working on the backend of high-traffic payment and messaging systems. Comfortable owning a service from the design doc through the on-call pager, and happiest when a rewrite drops both the latency graph and the cloud bill. Maintains a small open-source rate limiter that other teams now depend on."
+  },
+  "metrics": [
+    { "value": "12k/s", "label": "Requests handled" },
+    { "value": "90ms", "label": "p99 latency" },
+    { "value": "30%", "label": "Cloud cost cut" },
+    { "value": "600", "label": "GitHub stars" }
+  ],
+  "languages": ["English", "Tamil", "Hindi"],
+  "current_roles": [
+    {
+      "company": "Razorpay",
+      "title": "Senior Software Engineer",
+      "location": "Bengaluru, India",
+      "dates": "2021 – Present",
+      "industry": "Fintech · payments infrastructure",
+      "highlights": [
+        "Rebuilt the payments service to handle 12,000 requests a second, cutting p99 latency from 800ms to 90ms.",
+        "Led the migration off a monolith into six services and shipped it over a weekend with no downtime.",
+        "Wrote the rate limiter that now guards every public API and open-sourced it at 600 GitHub stars.",
+        "Trimmed the AWS bill 30% by moving batch jobs to spot instances and right-sizing the fleet.",
+        "Set up the on-call rotation and runbooks that dropped mean time to recovery from 45 to 12 minutes."
+      ]
+    },
+    {
+      "company": "Gojek",
+      "title": "Software Engineer",
+      "location": "Bengaluru, India",
+      "dates": "2017 – 2021",
+      "highlights": [
+        "Built the driver-location pipeline processing 2 billion events a day on Kafka.",
+        "Cut a nightly reconciliation job from six hours to twenty minutes by rewriting it in Go."
+      ]
+    }
+  ],
+  "projects": [
+    { "name": "ratekeeper", "description": "Open-source token-bucket rate limiter for Go services, used in production by three teams.", "tech": ["Go", "Redis"], "link": "github.com/meera-iyer/ratekeeper" },
+    { "name": "pgslice", "description": "CLI that shards a Postgres table online without a maintenance window.", "tech": ["Rust", "PostgreSQL"] }
+  ],
+  "skills": [
+    { "name": "Go", "level": 92 },
+    { "name": "Rust", "level": 80 },
+    { "name": "Distributed systems", "level": 88 },
+    { "name": "Kafka & event streaming", "level": 85 },
+    { "name": "PostgreSQL", "level": 84 },
+    { "name": "Kubernetes & AWS", "level": 82 }
+  ],
+  "achievements": [
+    "Cut payment p99 latency almost 9x on the same hardware through a service rewrite.",
+    "Open-sourced a rate limiter three internal teams and a handful of outside ones now run.",
+    "Halved the platform's on-call load by fixing the three alerts that caused most of the pages.",
+    "Gave a talk on zero-downtime migrations at Rootconf 2023."
+  ],
+  "education": [
+    { "degree": "B.Tech", "field": "Computer Science & Engineering", "institution": "NIT Trichy", "year": 2017, "score": "CGPA 8.9 / 10" }
+  ],
+  "certifications": [
+    { "name": "AWS Certified Solutions Architect — Associate", "year": 2022 }
+  ],
+  "core_competencies": {
+    "languages": ["Go", "Rust", "Python", "SQL"],
+    "systems": ["Distributed systems", "Event streaming", "Database sharding", "Caching", "Observability"],
+    "infra": ["Kubernetes", "AWS", "Terraform", "Kafka", "Redis", "PostgreSQL"]
+  },
+  "interests": ["Open source", "Mechanical keyboards", "Trail running"]
+}

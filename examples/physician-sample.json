@@ -1,0 +1,79 @@
+{
+  "version": "2.0",
+  "identity": {
+    "name": "Dr. Arjun Menon",
+    "headline": "Consultant Cardiologist | Interventional Cardiology",
+    "location": "Kochi, Kerala, India",
+    "email": "arjun.menon@example.com",
+    "phone": "+91 94470 22118",
+    "linkedin": "linkedin.com/in/dr-arjun-menon"
+  },
+  "summary": {
+    "short": "Interventional cardiologist running a busy cath lab in Kochi — 600+ angioplasties a year and the district's first round-the-clock primary-PCI service.",
+    "long": "Consultant cardiologist with fifteen years in interventional practice. Splits his week between the cath lab, a post-heart-attack follow-up clinic he set up, and teaching the DM residents. Set up the first 24x7 primary-angioplasty service in the district, which is the part of the work he is proudest of."
+  },
+  "metrics": [
+    { "value": "600+", "label": "PCIs per year" },
+    { "value": "<60min", "label": "Door-to-balloon" },
+    { "value": "15 yrs", "label": "In practice" },
+    { "value": "24x7", "label": "Primary-PCI service" }
+  ],
+  "languages": ["English", "Malayalam", "Hindi", "Tamil"],
+  "current_roles": [
+    {
+      "company": "Rajagiri Hospital",
+      "title": "Consultant Interventional Cardiologist",
+      "location": "Kochi, India",
+      "dates": "2016 – Present",
+      "industry": "Healthcare · cardiology",
+      "highlights": [
+        "Ran a cath lab through 600+ angioplasties a year, holding door-to-balloon times under 60 minutes.",
+        "Built the district's first 24x7 primary-PCI service and brought heart-attack transfer deaths in the catchment down about 40%.",
+        "Trained the DM cardiology residents on complex coronary work; 6 have gone on to consultant posts.",
+        "Started a post-heart-attack follow-up clinic that kept 80% of patients on their medication at one year.",
+        "Cut bleeding complications roughly 30% by making radial-access angioplasty the lab's default approach."
+      ]
+    }
+  ],
+  "past_roles": [
+    {
+      "company": "Amrita Institute of Medical Sciences",
+      "title": "Cardiologist, Cath-Lab Team",
+      "location": "Kochi, India",
+      "dates": "2011 – 2016",
+      "highlights": [
+        "Handled the cath-lab emergency roster and built the STEMI protocol the unit still uses."
+      ]
+    }
+  ],
+  "achievements": [
+    "Built the district's first 24x7 primary-angioplasty service from a standing start.",
+    "Delivered over 6,000 coronary procedures across 15 years with outcomes at national benchmark.",
+    "Trained 6 DM residents who now hold consultant cardiology posts.",
+    "Ran free heart-health camps twice a year that have screened more than 4,000 people."
+  ],
+  "education": [
+    { "degree": "DM (Cardiology)", "field": "Cardiology", "institution": "Sree Chitra Tirunal Institute, Thiruvananthapuram", "year": 2011 },
+    { "degree": "MD (General Medicine)", "field": "Internal Medicine", "institution": "Christian Medical College, Vellore", "year": 2007 },
+    { "degree": "MBBS", "field": "Medicine", "institution": "Government Medical College, Kozhikode", "year": 2003 }
+  ],
+  "certifications": [
+    { "name": "Fellowship in Interventional Cardiology", "year": 2013, "note": "European Society of Cardiology" },
+    { "name": "Advanced Cardiac Life Support (ACLS) Instructor", "year": 2015 }
+  ],
+  "core_competencies": {
+    "clinical": [
+      "Coronary angioplasty", "Radial-access PCI", "Primary PCI / STEMI care",
+      "Echocardiography", "Pacemaker implantation", "Heart-failure management"
+    ],
+    "academic_and_service": [
+      "Resident teaching", "Protocol design", "Cath-lab administration", "Community screening"
+    ]
+  },
+  "memberships": [
+    "Cardiological Society of India",
+    "European Society of Cardiology",
+    "Kerala Medical Council"
+  ],
+  "interests": ["Community health camps", "Backwater kayaking", "Classical guitar"]
+}

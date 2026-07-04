@@ -27,6 +27,7 @@ function allBullets(p) {
   const b = [];
   (p.current_roles || []).forEach((r) => (r.highlights || []).forEach((h) => b.push(h)));
   (p.past_roles || p.experience || []).forEach((r) => (r.highlights || r.bullets || []).forEach((h) => b.push(h)));
+  (p.appointments || []).forEach((r) => (r.highlights || r.bullets || []).forEach((h) => b.push(h)));
   (p.projects || []).forEach((pr) => (pr.highlights || (pr.description ? [pr.description] : [])).forEach((h) => b.push(h)));
   (p.internships || []).forEach((i) => (i.highlights || []).forEach((h) => b.push(h)));
   return b.filter(Boolean);
@@ -101,7 +102,7 @@ const DIMENSIONS = {
     const arch = ctx.classification?.archetype || 'general';
     const required = {
       executive: ['current_roles', 'achievements', 'core_competencies'],
-      academic: ['education', 'publications', 'research'],
+      academic: ['education', 'publications', 'research|research_statement|research_interests'],
       fresher: ['education', 'skills|core_competencies', 'projects|internships'],
       technical: ['skills|core_competencies', 'projects|current_roles'],
       creative: ['projects|current_roles', 'skills|core_competencies'],

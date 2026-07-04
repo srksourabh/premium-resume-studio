@@ -1,0 +1,90 @@
+{
+  "version": "2.0",
+  "identity": {
+    "name": "Kabir Rao",
+    "headline": "Creative Director | Brand, Campaigns & Design Systems",
+    "location": "Bengaluru, Karnataka, India",
+    "email": "kabir@example.com",
+    "phone": "+91 99000 77321",
+    "linkedin": "linkedin.com/in/kabir-rao-design",
+    "portfolio": "kabirrao.design"
+  },
+  "summary": {
+    "short": "Creative director who rebrands tired labels and builds the studios that keep them fresh — 12 years across brand, motion and packaging.",
+    "long": "Creative director working across brand identity, campaigns and design systems. Started as a packaging designer, ran an in-house team at a consumer brand, then built an independent studio that now works with food, fashion and telecom clients. Cares most about the unglamorous half of design — the system, the guidelines, the handoff — because that is what keeps a brand looking like itself a year later."
+  },
+  "metrics": [
+    { "value": "18%", "label": "Sales lift post-rebrand" },
+    { "value": "40M", "label": "Campaign reach" },
+    { "value": "9", "label": "Studio headcount" },
+    { "value": "3", "label": "National brands relaunched" }
+  ],
+  "languages": ["English", "Hindi", "Kannada"],
+  "current_roles": [
+    {
+      "company": "Studio Mango",
+      "title": "Founder & Creative Director",
+      "location": "Bengaluru, India",
+      "dates": "2018 – Present",
+      "industry": "Brand · campaigns · packaging · motion",
+      "highlights": [
+        "Rebranded a 20-year-old FMCG label and lifted its shelf recall — sales rose 18% in the two quarters after relaunch.",
+        "Built and run a nine-person studio covering brand, motion and packaging for retainer clients in food and fashion.",
+        "Directed a national campaign for a telecom launch that reached 40 million people and won a Kyoorius bronze.",
+        "Set the design system three product teams now share, so a new landing page ships in a day instead of a week.",
+        "Mentored four junior designers; two of them now lead their own pods."
+      ]
+    }
+  ],
+  "past_roles": [
+    {
+      "company": "Frooti (Parle Agro)",
+      "title": "Senior Brand Designer",
+      "location": "Mumbai, India",
+      "dates": "2014 – 2018",
+      "highlights": [
+        "Owned packaging design across a 30-SKU range and cut new-SKU turnaround from six weeks to two.",
+        "Shaped the visual language for a summer campaign that ran across 12 cities."
+      ]
+    },
+    {
+      "company": "Ogilvy",
+      "title": "Art Director",
+      "location": "Mumbai, India",
+      "dates": "2012 – 2014",
+      "highlights": [
+        "Art-directed print and film for two FMCG accounts, one of which grew share three points during the work."
+      ]
+    }
+  ],
+  "projects": [
+    { "name": "Handloom Co. identity", "description": "Full rebrand for a weavers' collective — logo, packaging and a storefront system now used across 40 outlets." },
+    { "name": "Metro transit signage", "description": "Wayfinding and pictogram set for a metro line, tested with 200 commuters before rollout." }
+  ],
+  "achievements": [
+    "Rebranded three national labels, each of which grew sales in the year after relaunch.",
+    "Grew a solo practice into a nine-person studio profitable in its second year.",
+    "Won a Kyoorius bronze and two regional advertising awards for campaign work.",
+    "Speak twice a year at design schools on building systems, not just logos."
+  ],
+  "education": [
+    { "degree": "B.Des", "field": "Communication Design", "institution": "National Institute of Design (NID), Ahmedabad", "year": 2012 }
+  ],
+  "core_competencies": {
+    "craft": [
+      "Brand identity", "Packaging design", "Typography", "Art direction",
+      "Motion design", "Illustration"
+    ],
+    "systems": [
+      "Design systems", "Brand guidelines", "Component libraries", "Design-to-dev handoff"
+    ],
+    "tools": [
+      "Figma", "Adobe Illustrator", "After Effects", "Blender", "Cinema 4D"
+    ]
+  },
+  "awards": [
+    "Kyoorius Design Award — Bronze (2021)",
+    "Kyoorius Blue Elephant shortlist (2020)"
+  ],
+  "interests": ["Letterpress printing", "Street photography", "Cycling"]
+}

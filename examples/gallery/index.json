@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "01-executive-graphite",
+    "who": "Founder / CEO — IT & AI",
+    "design": "executive-graphite-azure-sans",
+    "name": "Graphite Azure Executive",
+    "family": "executive",
+    "palette": "graphite-azure",
+    "type": "sans",
+    "pages": 2,
+    "council": 91.8
+  },
+  {
+    "slug": "02-cfo-midnight-gold",
+    "who": "CFO — SaaS finance",
+    "design": "executive-midnight-gold-serif-head",
+    "name": "Midnight Gold Executive",
+    "family": "executive",
+    "palette": "midnight-gold",
+    "type": "serif-head",
+    "pages": 1,
+    "council": 91.2
+  },
+  {
+    "slug": "03-creative-plum-banner",
+    "who": "Creative Director — brand",
+    "design": "header-band-plum-coral-display",
+    "name": "Plum Coral Banner",
+    "family": "header-band",
+    "palette": "plum-coral",
+    "type": "display",
+    "pages": 1,
+    "council": 87.9
+  },
+  {
+    "slug": "04-engineer-steel-sidebar",
+    "who": "Senior Software Engineer",
+    "design": "sidebar-right-steel-cyan-mono-accent",
+    "name": "Steel Cyan Profile",
+    "family": "sidebar-right",
+    "palette": "steel-cyan",
+    "type": "mono-accent",
+    "pages": 1,
+    "council": 88.1
+  },
+  {
+    "slug": "05-physician-forest-single",
+    "who": "Consultant Cardiologist",
+    "design": "single-forest-copper-serif-head",
+    "name": "Forest Copper Column",
+    "family": "single",
+    "palette": "forest-copper",
+    "type": "serif-head",
+    "pages": 1,
+    "council": 90
+  },
+  {
+    "slug": "06-fresher-teal-spark",
+    "who": "New-grad Software Engineer",
+    "design": "fresher-teal-sunrise-sans",
+    "name": "Teal Sunrise Spark",
+    "family": "fresher",
+    "palette": "teal-sunrise",
+    "type": "sans",
+    "pages": 1,
+    "council": 88.6
+  },
+  {
+    "slug": "07-academic-navy-scholar",
+    "who": "Assistant Professor — CS",
+    "design": "academic-academic-navy-serif-head",
+    "name": "Academic Navy Scholar",
+    "family": "academic",
+    "palette": "academic-navy",
+    "type": "serif-head",
+    "pages": 1,
+    "council": 85.9
+  }
+]

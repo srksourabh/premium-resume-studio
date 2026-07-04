@@ -1,0 +1,98 @@
+{
+  "version": "2.0",
+  "identity": {
+    "name": "Priya Nair",
+    "headline": "Chief Financial Officer | FP&A, Fundraising & Financial Controls",
+    "location": "Mumbai, Maharashtra, India",
+    "email": "priya.nair@example.com",
+    "phone": "+91 98200 44556",
+    "linkedin": "linkedin.com/in/priya-nair-cfo",
+    "website": "priyanair.finance"
+  },
+  "summary": {
+    "short": "CFO who took a B2B SaaS company from ₹40 crore to ₹190 crore in revenue and closed its $28M Series C.",
+    "long": "Finance leader with eighteen years across SaaS, retail and audit. Joined Novadesk at ₹40 crore in revenue and helped grow it past ₹190 crore, building the finance team, the forecasting model and the controls that got it through a $28M Series C. Spent the first half of her career at a Big Four firm, so she reads a balance sheet the way most people read a headline."
+  },
+  "metrics": [
+    { "value": "$28M", "label": "Series C led" },
+    { "value": "74%", "label": "Gross margin" },
+    { "value": "4-day", "label": "Monthly close" },
+    { "value": "₹190 Cr", "label": "Revenue reached" }
+  ],
+  "languages": ["English", "Hindi", "Malayalam"],
+  "current_roles": [
+    {
+      "company": "Novadesk Technologies",
+      "title": "Chief Financial Officer",
+      "location": "Mumbai, India",
+      "dates": "2019 – Present",
+      "industry": "B2B SaaS · customer-support software",
+      "highlights": [
+        "Took the company through a $28M Series C, running the raise from first model to signed term sheet in four months.",
+        "Cut the monthly close from 12 days to 4 by rebuilding the reporting stack and retiring three legacy tools.",
+        "Grew gross margin from 61% to 74% over two years by repricing the enterprise tier and renegotiating cloud contracts.",
+        "Built the FP&A function from scratch — hired a team of six and put board-ready forecasting in place.",
+        "Moved audit and tax to a Big Four firm and closed three years running with no restatements.",
+        "Set up revenue recognition under Ind AS 115 ahead of Series C diligence, which cleared in one pass."
+      ]
+    }
+  ],
+  "past_roles": [
+    {
+      "company": "Metroline Retail",
+      "title": "VP Finance",
+      "location": "Mumbai, India",
+      "dates": "2014 – 2019",
+      "highlights": [
+        "Ran finance for a 90-store chain and brought working-capital days down from 78 to 46.",
+        "Led the SAP rollout across stores and warehouses, delivered on budget in nine months."
+      ]
+    },
+    {
+      "company": "Deloitte India",
+      "title": "Manager — Audit & Assurance",
+      "location": "Bengaluru, India",
+      "dates": "2007 – 2014",
+      "highlights": [
+        "Signed off statutory audits for listed manufacturing and tech clients up to ₹2,000 crore in turnover."
+      ]
+    }
+  ],
+  "achievements": [
+    "Closed a $28M Series C and two earlier bridge rounds without diluting the founders below control.",
+    "Took gross margin from 61% to 74% and turned the company cash-flow positive a year ahead of plan.",
+    "Rebuilt month-end close to four days, giving the board numbers a week earlier every month.",
+    "Qualified as a Chartered Accountant in the top 50 nationally in her cohort."
+  ],
+  "education": [
+    { "degree": "Chartered Accountant (CA)", "field": "Institute of Chartered Accountants of India", "year": 2007 },
+    { "degree": "B.Com (Hons)", "field": "Accounting & Finance", "institution": "St. Xavier's College, Mumbai", "year": 2004 }
+  ],
+  "certifications": [
+    { "name": "CFA — Level III Candidate", "year": 2016 },
+    { "name": "Certified Public Accountant (CPA), USA", "year": 2018 }
+  ],
+  "core_competencies": {
+    "finance_leadership": [
+      "FP&A", "Fundraising", "Board reporting", "Financial modelling",
+      "Unit economics", "Cash-flow management", "Capital allocation"
+    ],
+    "controls_and_compliance": [
+      "Statutory audit", "Ind AS / IFRS", "Revenue recognition", "Internal controls",
+      "Tax planning", "Treasury", "Due diligence"
+    ],
+    "operations": [
+      "ERP implementation", "SAP", "Procure-to-pay", "Working-capital management",
+      "Pricing strategy", "Vendor negotiation"
+    ]
+  },
+  "awards": [
+    "CFO of the Year (SaaS), Finance Leaders Forum 2023",
+    "Rank-holder, CA Final 2007"
+  ],
+  "memberships": [
+    "Institute of Chartered Accountants of India",
+    "CFA Society India"
+  ],
+  "interests": ["Long-distance running", "Carnatic music", "Mentoring women in finance"]
+}

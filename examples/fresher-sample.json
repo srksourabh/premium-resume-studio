@@ -25,6 +25,11 @@
     { "name": "Machine Learning (PyTorch)", "level": 74 },
     { "name": "Git & CI/CD", "level": 80 }
   ],
+  "core_competencies": {
+    "languages": ["Python", "JavaScript", "TypeScript", "SQL"],
+    "frameworks": ["React", "Node.js", "Next.js", "Flask", "PyTorch"],
+    "tools": ["Git", "CI/CD", "PostgreSQL", "Firebase", "Docker", "AWS"]
+  },
   "projects": [
     { "name": "MediTrack", "description": "Full-stack medicine-reminder app with 500+ beta users on the college campus.", "tech": ["React", "Node.js", "PostgreSQL"] },
     { "name": "LeafSense", "description": "CNN plant-disease classifier hitting 94% accuracy across 12 crop classes.", "tech": ["Python", "PyTorch", "Flask"] },

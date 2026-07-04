@@ -2,9 +2,10 @@
   "version": "2.0",
   "identity": {
     "name": "Dr. Rohan Mukherjee",
-    "headline": "Assistant Professor of Computational Neuroscience",
-    "location": "Bengaluru, India",
+    "headline": "Assistant Professor of Computational Neuroscience | Spiking Networks & Learning",
+    "location": "New Delhi, India",
     "email": "r.mukherjee@example.edu",
+    "phone": "+91 98450 66123",
     "linkedin": "linkedin.com/in/rohan-mukherjee",
     "website": "rohanmukherjee.science"
   },
@@ -15,8 +16,30 @@
     { "degree": "M.Sc.", "field": "Physics", "institution": "IIT Bombay", "year": 2013 }
   ],
   "appointments": [
-    { "title": "Assistant Professor", "institution": "IIT Delhi — Dept. of Computer Science", "dates": "2021 – Present" },
-    { "title": "Postdoctoral Fellow", "institution": "University College London — Gatsby Unit", "dates": "2019 – 2021" }
+    {
+      "title": "Assistant Professor",
+      "institution": "IIT Delhi — Dept. of Computer Science",
+      "dates": "2021 – Present",
+      "highlights": [
+        "Built a research group of 5 PhD students and 2 postdocs working on biologically plausible learning.",
+        "Raised ₹1.2 crore in competitive funding and published 3 first-author papers in the first three years."
+      ]
+    },
+    {
+      "title": "Postdoctoral Fellow",
+      "institution": "University College London — Gatsby Unit",
+      "dates": "2019 – 2021",
+      "highlights": [
+        "Developed local plasticity rules that approximate backpropagation, published at NeurIPS 2023."
+      ]
+    }
+  ],
+  "achievements": [
+    "Published 3 first-author papers in Nature Machine Intelligence, NeurIPS and eLife since 2022.",
+    "Secured a ₹1.2 crore SERB core research grant and a Wellcome Trust early-career fellowship.",
+    "Built a lab of 5 PhD students and 2 postdocs from a standing start in 2021.",
+    "Mentored 200+ graduate students across two ML and neural-computation courses.",
+    "Presented invited talks at Cosyne and a NeurIPS workshop in 2023 and 2024."
   ],
   "publications": [
     { "authors": "Mukherjee R., Chen L., Rao S.", "title": "Sample-efficient credit assignment in spiking networks", "venue": "Nature Machine Intelligence", "year": 2024 },
